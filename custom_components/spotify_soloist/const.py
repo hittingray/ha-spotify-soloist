@@ -1,5 +1,5 @@
 DOMAIN = "spotify_soloist"
-DEFAULT_HOST = "local-spotify-soloist"
+DEFAULT_HOST = ""
 DEFAULT_PORT = 9090
 DEFAULT_NAME = "Spotify Soloist"
 CONF_HOST = "host"

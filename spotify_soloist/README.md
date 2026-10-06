@@ -11,7 +11,8 @@ The Docker image **does not contain Spotify Soloist**. Spotify's architecture-sp
 - Downloads the correct Spotify Soloist release at runtime.
 - Persists the Soloist binary, state, and cache under `/data/soloist`.
 - Checks `soloist --version` at startup and refreshes a build when it is within 14 days of its 90-day lifetime.
-- Exposes the Spotify Soloist WebSocket API on TCP port 9090 by default.
+- Uses host networking so Spotify Connect mDNS discovery can reach the local network.
+- Listens for the Spotify Soloist WebSocket API on TCP port 9090 by default.
 - Uses Home Assistant's audio integration (`audio: true`) for PulseAudio.
 
 ## Important Spotify requirements
@@ -37,15 +38,23 @@ On first start, the app detects the host architecture and downloads the matching
 
 ## WebSocket API
 
+The app uses host networking for Spotify Connect's mDNS multicast discovery. Its WebSocket API is therefore bound directly on the Home Assistant host, on the configured `websocket_port` (9090 by default), rather than published through a Docker port mapping.
+
 The app starts Soloist with:
 
 ```text
 --ws 0.0.0.0:9090
 ```
 
-and Home Assistant exposes TCP port `9090` by default.
+The WebSocket port is bound directly on the host, using `websocket_port` (9090 by default).
 
-The WebSocket API has no built-in authentication or TLS. Keep the port on a trusted local network and do not expose it directly to the Internet.
+The WebSocket API has no built-in authentication or TLS. Keep the Home Assistant host and this port on a trusted local network and do not expose it directly to the Internet. If another service already uses the selected port on the host, choose a different `websocket_port`.
+
+For Spotify Connect discovery to work, the network must allow mDNS multicast (UDP port 5353) between the Home Assistant host and the clients. Host networking cannot bypass multicast filtering by a router, VLAN, or Wi-Fi access point.
+
+## Home Assistant integration
+
+Because the app uses host networking, the integration should connect to the Home Assistant host's LAN IP address or a hostname that resolves to that address, using the configured WebSocket port. The old app-only hostname `local-spotify-soloist` is not available in host network mode. Remove and add the integration again with the host address after updating the app.
 
 ## Persistent files
 

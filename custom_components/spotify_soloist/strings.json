@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Connect to Spotify Soloist",
-        "description": "The default host is Home Assistant's internal app hostname for a locally installed Spotify Soloist app.",
+        "description": "Enter the Home Assistant host's LAN IP address or a hostname that resolves to it. The app uses host networking for Spotify Connect discovery, so its internal app hostname is unavailable.",
         "data": {
           "host": "Host",
           "port": "WebSocket port"

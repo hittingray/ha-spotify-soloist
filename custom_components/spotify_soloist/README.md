@@ -2,14 +2,8 @@
 
 This custom integration connects Home Assistant to the Spotify Soloist app over its WebSocket API.
 
-## Default connection
+## Connection
 
-The default host is:
+Use the Home Assistant host's LAN IP address or a hostname that resolves to it, with port `9090` by default.
 
-`local-spotify-soloist`
-
-This is Home Assistant's internal DNS hostname for an app installed from the local app repository when the app slug is `spotify_soloist`. Home Assistant generates app names as `{repository}_{slug}` and DNS names by replacing underscores with hyphens.
-
-If the app is installed from a GitHub repository rather than the local repository, Home Assistant uses a repository-specific identifier. In that case, enter the generated app hostname during integration setup.
-
-The default WebSocket port is `9090`.
+The app uses host networking so Spotify Connect's mDNS discovery is visible on the local network. Its internal app hostname is not available in this mode. Re-add an existing integration with the Home Assistant host address after updating the app.

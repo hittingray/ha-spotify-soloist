@@ -1,5 +1,5 @@
 name: Spotify Soloist
-version: "1.0.2"
+version: "1.0.3"
 slug: spotify_soloist
 description: Spotify Soloist Spotify Connect player for Home Assistant
 url: https://github.com/hittingray/ha-spotify-soloist/tree/main/spotify_soloist
@@ -14,12 +14,7 @@ startup: application
 boot: auto
 init: true
 audio: true
-
-ports:
-  9090/tcp: 9090
-
-ports_description:
-  9090/tcp: Spotify Soloist WebSocket API
+host_network: true
 
 options:
   device_name: "Home Assistant Spotify"
