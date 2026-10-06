@@ -54,6 +54,7 @@ download_soloist() {
     extracted="${temp_dir}/soloist"
 
     cleanup_download() {
+        trap - RETURN
         rm -rf "${temp_dir}"
     }
     trap cleanup_download RETURN
