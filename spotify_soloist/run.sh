@@ -47,8 +47,9 @@ detect_architecture() {
 
 download_soloist() {
     local archive_url="${DOWNLOAD_BASE}/${SOLOIST_ARCHIVE}"
-    local temp_dir archive extracted
+    local archive extracted
 
+    temp_dir=""
     temp_dir="$(mktemp -d)"
     archive="${temp_dir}/${SOLOIST_ARCHIVE}"
     extracted="${temp_dir}/soloist"
