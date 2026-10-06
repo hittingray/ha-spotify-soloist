@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:resolute
 
 ARG BUILD_VERSION="dev"
 
