@@ -11,6 +11,7 @@ RUN apt-get update \
         curl \
         jq \
         tar \
+        libatomic1 \
     && rm -rf /var/lib/apt/lists/*
 
 COPY run.sh /run.sh

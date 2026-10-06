@@ -1,5 +1,5 @@
 name: Spotify Soloist
-version: "1.0.0"
+version: "1.0.1"
 slug: spotify_soloist
 description: Spotify Soloist Spotify Connect player for Home Assistant
 url: https://github.com/hittingray/ha-spotify-soloist/tree/main/spotify_soloist
