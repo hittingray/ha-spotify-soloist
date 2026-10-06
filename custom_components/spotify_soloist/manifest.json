@@ -3,7 +3,7 @@
   "name": "Spotify Soloist",
   "codeowners": [],
   "config_flow": true,
-  "documentation": "https://github.com/YOUR_USERNAME/ha-spotify-soloist",
+  "documentation": "https://github.com/hittingray/ha-spotify-soloist",
   "iot_class": "local_push",
   "requirements": [],
   "version": "1.0.0"

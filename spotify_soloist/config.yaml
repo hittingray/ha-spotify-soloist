@@ -3,7 +3,7 @@ version: "1.0.0"
 slug: spotify_soloist
 description: Spotify Soloist Spotify Connect player for Home Assistant
 url: https://github.com/hittingray/ha-spotify-soloist/tree/main/spotify_soloist
-image: docker.io/hittingray/ha-spotify-soloist:latest
+image: ghcr.io/hittingray/ha-spotify-soloist
 
 arch:
 - amd64
