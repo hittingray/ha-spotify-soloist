@@ -1,0 +1,36 @@
+name: Spotify Soloist
+version: "1.0.0"
+slug: spotify_soloist
+description: Spotify Soloist Spotify Connect player for Home Assistant
+url: https://github.com/hittingray/ha-spotify-soloist
+image: docker.io/hittingray/ha-spotify-soloist:latest
+
+arch:
+- amd64
+- aarch64
+- armv7
+
+startup: application
+boot: auto
+init: true
+audio: true
+
+ports:
+  9090/tcp: 9090
+
+ports_description:
+  9090/tcp: Spotify Soloist WebSocket API
+
+options:
+  device_name: "Home Assistant Spotify"
+  api_key: null
+  websocket_port: 9090
+  initial_volume: 50
+
+schema:
+  device_name: str
+  api_key: password
+  websocket_port: port
+  initial_volume: int(0,100)
+
+stage: experimental
